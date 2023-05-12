@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "news-scrap"
+version = "0.1.0"
+description = ""
+authors = ["MaksymBratsiun <111972238+MaksymBratsiun@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "news_scrap"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.30.0"
+lxml = "^4.9.2"
+beautifulsoup4 = "^4.12.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
