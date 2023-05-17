@@ -8,14 +8,16 @@ def unian_news():
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'lxml')
     results = soup.find_all('a', {'class': 'list-thumbs__title'})
+    return_result = []
     for item in results:
-        print(item.text, item['href'])
+        return_result.append({'header': item.text.replace('\n', ''), 'url': item['href']})
+    return return_result
 
 
 def exchange_rate():
     response = requests.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11')
     exch_rate = response.json()
-    print(exch_rate)
+    return exch_rate
 
 
 def weather_current():
@@ -27,6 +29,6 @@ def weather_current():
 
 
 if __name__ == '__main__':
-    unian_news()
-    exchange_rate()
+    print(unian_news())
+    print(exchange_rate())
     weather_current()
