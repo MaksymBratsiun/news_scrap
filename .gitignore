@@ -7,3 +7,5 @@ __pycache__
 .idea/misc.xml
 .idea/inspectionProfiles/profiles_settings.xml
 api.py
+chromedriver.exe
+chromedriver.exe

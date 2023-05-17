@@ -1,4 +1,5 @@
 import requests
+from selenium import webdriver
 from bs4 import BeautifulSoup
 from api import api
 
@@ -15,7 +16,7 @@ def unian_news():
 
 
 def exchange_rate():
-    response = requests.get('https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11')
+    response = requests.get('https://jobs.dou.ua/vacancies/feeds/?category=Python')
     exch_rate = response.json()
     return exch_rate
 
@@ -25,10 +26,17 @@ def weather_current():
     lon = '30.527561'
     response = requests.get(f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api}')
     weather = response.json()
-    print(weather)
+    return weather
+
+
+def dou_news():
+    driver = webdriver.Chrome()
+    driver.get("https://dou.ua/")
+    driver.quit()
 
 
 if __name__ == '__main__':
-    print(unian_news())
-    print(exchange_rate())
-    weather_current()
+    # print(unian_news())
+    # print(exchange_rate())
+    # print(weather_current())
+    dou_news()
